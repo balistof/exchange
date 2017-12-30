@@ -215,6 +215,9 @@ public class PeerManager implements ConnectionListener, PersistedDataHost {
         lostAllConnections = networkNode.getAllConnections().isEmpty();
         if (lostAllConnections) {
             stopped = true;
+            log.warn("\n------------------------------------------------------------\n" +
+                    "All connections lost\n" +
+                    "------------------------------------------------------------");
             listeners.stream().forEach(Listener::onAllConnectionsLost);
         }
 
